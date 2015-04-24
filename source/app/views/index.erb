@@ -1,0 +1,23 @@
+<% if session[:id] == nil %>
+
+  <form action="/login" method="post">
+    <ul>
+      <label for = "email">email:</label>
+      <li><input id = "email" type = "text" name = "email"></li>
+      <label for = "password">password:</label>
+      <li><input id = "password" type = "password" name = "password"></li>
+    </ul>
+    <input type = "submit" value = "login">
+  </form>
+
+  <a href="/users/new">register</a>
+<% end %>
+
+<% if @users %>
+  <% @users.each do |user| %>
+    <%= user.name %>
+    <%= user.wishes %>
+  <% end %>
+<% end %>
+
+
